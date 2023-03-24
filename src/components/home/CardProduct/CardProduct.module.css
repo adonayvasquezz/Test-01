@@ -1,0 +1,15 @@
+.cardContainer {
+    background-color: grey;
+    width: 100%;
+}
+
+.imageContainer {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 15rem;
+}
+
+.image {
+    object-fit: cover;
+}

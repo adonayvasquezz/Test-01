@@ -9,4 +9,6 @@ export interface IProductDetail {
     type: string,
     description: string,
     price: number,
+    img_url_standard: string,
+    img_url_thumbnail: string
   }

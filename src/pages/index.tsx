@@ -1,7 +1,7 @@
 import Head from "next/head";
 import HomeComponent from "@/components/home/HomeComponent/HomeComponent";
 import { GetStaticProps, NextPage } from "next";
-import { getProducts } from "@/services/apiProduct";
+import { getProducts, getProductsWithImage } from "@/services/apiProduct";
 import { IProduct, IProductDetail } from "@/interfaces/Product";
 
 const Home: NextPage<IProduct> = ({ products }) => {
@@ -23,7 +23,8 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   try {
     const productsArray = await getProducts();
     if (productsArray) {
-      products = productsArray;
+      const productsWithImages = await getProductsWithImage(productsArray);
+      products = productsWithImages;
     }
   } catch (error) {
     console.error(error);
