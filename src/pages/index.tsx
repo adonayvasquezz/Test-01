@@ -1,7 +1,7 @@
 import Head from "next/head";
 import HomeComponent from "@/components/home/HomeComponent/HomeComponent";
 import { GetStaticProps, NextPage } from "next";
-import { getProducts } from "@/services/getProducts";
+import { getProducts } from "@/services/apiProduct";
 import { IProduct, IProductDetail } from "@/interfaces/Product";
 
 const Home: NextPage<IProduct> = ({ products }) => {
