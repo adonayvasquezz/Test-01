@@ -1,9 +1,10 @@
 import Head from "next/head";
-import HomeComponent from "@/components/home/HomeComponent";
-import { GetStaticProps } from "next";
+import HomeComponent from "@/components/home/HomeComponent/HomeComponent";
+import { GetStaticProps, NextPage } from "next";
 import { getProducts } from "@/services/getProducts";
+import { IProduct, IProductDetail } from "@/interfaces/Product";
 
-export default function Home() {
+const Home: NextPage<IProduct> = ({ products }) => {
   return (
     <>
       <Head>
@@ -12,16 +13,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HomeComponent />
+      <HomeComponent products={products} />
     </>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  let products: any[] = [];
+  let products: IProductDetail[] = [];
   try {
     const productsArray = await getProducts();
-    console.log("productos", productsArray);
     if (productsArray) {
       products = productsArray;
     }
@@ -35,3 +35,5 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     },
   };
 };
+
+export default Home;

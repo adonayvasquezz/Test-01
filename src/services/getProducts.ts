@@ -11,5 +11,5 @@ export const getProducts = async () => {
   const data = await fetch(API_URL, { headers: options });
   const products = await data.json();
 
-  return products;
+  return products.data;
 };
