@@ -14,6 +14,11 @@ const CardProduct: FC<Props> = ({ product }) => {
       <div className={css.imageContainer}>
         <Image src={img_url_standard} fill alt={name} className={css.image} />
       </div>
+      <div className={css.title}>{name}</div>
+      <div className={css.price}>{price}$</div>
+      <div className={css.cartBtnContainer}>
+        <button className={css.cartBtn}>Add to cart</button>
+      </div>
     </div>
   );
 };
